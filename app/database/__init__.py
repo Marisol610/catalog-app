@@ -56,7 +56,7 @@ def read(prod_id):
     return output_formatter(results)
 
 
-def update(prod_id, fields: dict):
+def update(prod_id, fields):
     field_string = ", ".join(
                     "%s=\"%s\"" % (key,val)
                         for key,val

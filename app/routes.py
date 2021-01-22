@@ -38,7 +38,7 @@ def product_form():
         unique_tag = request.form.get("unique_tag")
 
 
-        create(name, price, category, description)
+        create(name, price, description, category, quantity, unique_tag)
     form = ProductForm()
     return render_template("form_example.html", form=form)
 
@@ -87,6 +87,36 @@ def update_product(pid):
         return render_template("single_product.html", product=out["body"][0], form=update_form)
     else:
         return render_template("404.html"), 404
+
+
+
+@app.route("/products/delete/<pid>", methods=["GET"])
+def delete_product(pid):
+    out = update(int(pid), {"active": 0})
+
+    return {"ok": out, "message": "Deleted"}
+
+
+
+
+#@app.route("/products/delete/<int:pid>", methods=["DELETE"])
+#def delete_product(pid):
+ #   i=0
+  #  deleted=False
+
+   # for product in products:
+    #    if product["pid"] == id:
+     #       products.id(i)
+      #      deleted = True
+
+
+       # i += 1
+
+    #if deleted:
+     #   return render_template("single_product.html", product=out["body"][0], form=update_form)
+    #else:
+     #   return render_template("404.html"), 404   
+
 
 
 

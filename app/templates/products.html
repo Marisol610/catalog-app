@@ -5,53 +5,58 @@
     <div class="page-header">
 
 
-        {% for product in products %}
 
-        <br>
-        {% if product["active"] != 0 %}
-        <h1>Name: {{ product["name"] }} </h1>
-        <p>Price: {{ product["price"] }}</p>
-        <p>Description: {{ product["description"] }}</p>
-        <p>Category: {{ product["category"] }}</p>
-        <p>Quantity: {{ product["quantity"] }}</p>
-        <p>Unique_tag: {{ product["unique_tag"] }}</p>
-        {% endif %}
-        {% endfor %}
+        <table class="table">
+
+
+
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Unique_tag</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for product in products %}
+                {% if product["active"] == 1 %}
+                {% if product["quantity"] <= 500 %}
+                {% if product["quantity"] <= 100 %}
+                <tr class="table-danger">
+                    {% else %}
+                <tr class="table-warning">
+                    {% endif %}
+                    {% else %}
+                <tr class="table-success">
+                    {% endif %}
+                    <th scope="row">{{ product["id"] }}</th>
+                    <td>{{ product["name"] }}</td>
+                    <td>{{ product["price"] }}</td>
+                    <td>{{ product["category"] }}</td>
+                    <td>{{ product["description"] }}</td>
+                    <td>{{ product["quantity"] }}</td>
+                    <td>{{ product["Unique_tag"] }}</td>
+
+                </tr>
+                {% endif %}
+                {% endfor %}
+                <br>
+                <h3>Inventory List</h3>
+
+
+            </tbody>
+        </table>
+
     </div>
 </div>
+
+<div class="container">
+    <p>Delete Product</p>
+    <a href="/delete/{{ product_id }}" class="btn btn-outline-danger btn-sm">Delete</a>
+</div>
 {% endblock %}
-
-<thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Price</th>
-        <th scope="col">Description</th>
-        <th scope="col">Category</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Unique_tag</th>
-    </tr>
-</thead>
-
-<tbody>
-    {% for product in products %}
-    {% if product["active"] == 1 %}
-    {% if product["quantity"] <= 500 %}
-    {% if product["quantity"] <= 100 %} <tr class="table-danger">
-        {% else %}
-    <tr class="table-warning"></tr>
-    {% endif %}
-    {% else %}
-    <tr class="table-success">
-        {% endif %}
-        <th scope="row">{{ product["id"] }}</th>
-        <td>{{ product["name"] }}</td>
-        <td>{{ product["price"] }}</td>
-        <td>{{ product["category"] }}</td>
-        <td>{{ product["description"] }}</td>
-        <td>{{ product["quantity"] }}</td>
-
-    </tr>
-    {% endif %}
-    {% endfor %}
-</tbody>
