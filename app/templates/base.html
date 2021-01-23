@@ -4,29 +4,31 @@
 {% block navbar %}
 
 
-<nav class="navbar navbar-light" style="background-color: #ffd700;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkseagreen;">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <a class="navbar-brand" href="#" style="color:darkblue">Duckommerce.com</a>
+
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01"></div>
-        <a class="navbar-brand" href="#" style="color:darkblue" style="font-size: 2rem;">Duckommerce.com</a>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href={{ url_for("product_form") }}>Create</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href={{ url_for("get_all_products") }}>Scan</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href={{ url_for("product_form") }}>Update</a>
-            </li>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href={{ url_for("product_form") }}>Create</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={{ url_for("get_all_products") }}>Scan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={{ url_for("product_form") }}>Update</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={{ url_for("product_form") }}>Delete</a>
+                </li>
 
 
 
-        </ul>
-    </div>
+        </div>
     </div>
 </nav>
-<div {% endblock %}
+
+
+{% endblock %}

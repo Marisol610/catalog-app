@@ -56,7 +56,7 @@ def read(prod_id):
     return output_formatter(results)
 
 
-def update(prod_id, fields):
+def update(prod_id, fields:dict):
     field_string = ", ".join(
                     "%s=\"%s\"" % (key,val)
                         for key,val
@@ -67,7 +67,7 @@ def update(prod_id, fields):
             WHERE id = ?
             """ % field_string
     cursor = get_db()
-    cursor.execute(query, (prod_id))
+    cursor.execute(query, (prod_id,))
     cursor.commit()
     return True
 

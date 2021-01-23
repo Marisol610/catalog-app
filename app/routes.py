@@ -98,24 +98,18 @@ def delete_product(pid):
 
 
 
-
-#@app.route("/products/delete/<int:pid>", methods=["DELETE"])
+#@app.route("/products/delete/<pid>", methods=["GET"])
 #def delete_product(pid):
- #   i=0
-  #  deleted=False
+ #   id= input("Enter the id for the item you wish to delete")
 
-   # for product in products:
-    #    if product["pid"] == id:
-     #       products.id(i)
-      #      deleted = True
+  #  for product in products:
+   #     if(str(prod.id) == id):
+    #    delete(pid, request.form)
+     #   return {"ok": True, "message": "Updated"}
 
 
-       # i += 1
+    
 
-    #if deleted:
-     #   return render_template("single_product.html", product=out["body"][0], form=update_form)
-    #else:
-     #   return render_template("404.html"), 404   
 
 
 
