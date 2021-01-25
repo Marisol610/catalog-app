@@ -1,10 +1,35 @@
 {% extends "base.html" %}
 
+
 {% block content %}
-<div class="container">
-    <div class="page-header">
-        <h1>Welcome to Duckommerce.com </h1>
-        <P>We are an e-commerce company that focuses on importing and selling goods.</P>
+
+<body class="background" style="background-color: lightcoral">
+
+
+
+    <div class="container">
+        <div class="page-header"><br>
+            <h1 class="hearder" style="font-style: italic;">Marisol Rodriguez </h1>
+
+            <img class="pic" style="width:30%" src={{ url_for("static", filename="mypic.jpg") }}><br><br>
+            <h3 class="subheader" style="font-style: italic;">My biography</h3><br><br>
+
+            <P class="paragraph" style="font-style: italic;">
+                Marisol Rodriguez currently served as a Visual Manager at
+                Winter Haven FL. Prior to joining Macy's Ms.
+                Marisol Rodriguez held a leadership position role for 10 years as a Forecast Analyst, Inventory Planner,
+                and IT Support at Newell Rubbermaid Co., 2 years as an Instructor for Milwaukee public Schools and in
+                2009 became a Business Owner.<br>
+
+                Marisol Rodriguez is currently persuing a degree in Full Stack Web Development at the San Diego Global
+                University in San Diego, Ca. . In 1993 she obtained an Associates Degree in Computer programming
+                from E.D.P. College of P.R. ,and in 2006 graduated from Milwaukee
+                Technical College with a Certicate in Baking & Pastry. </P>
+
+
+
+
+        </div>
     </div>
-</div>
+</body>
 {% endblock %}
