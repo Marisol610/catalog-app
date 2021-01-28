@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %} My Catalog {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    {% for product in products %}
+    <div class="col-lg-4">
+        <img class="prod-img" style="width:30%;" src={{ url_for("static", filename="3ppatioset.jpg") }}>
+        <div class="box-prod">
+            <h6><strong>{{ product["name"] }}</strong></h6>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn">Add to Cart</button>
+            <h4 style="display: inline-block; ">{{product.price }}</h4>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <img class="prod-img" style="width:30%;" src={{ url_for("static/images", filename="Digital Watch.jpg") }}>
+        <div class="box-prod">
+            <h6><strong>{{ product["name"] }}</strong></h6>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn">Add to Cart </button>
+            <h4 style="display: inline-block; ">{{product.price }}</h4>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <img class="prod-img" style="width:30%;" src={{ url_for("static/images", filename="bean bag.jpg") }}>
+        <div class="box-prod">
+            <h6><strong>{{ product["name"] }}</strong></h6>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn">Add to Cart </button>
+            <h4 style="display: inline-block; ">{{product.price }}</h4>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <img class="prod-img" style="width:30%;" src={{ url_for("static/images", filename="rug.jpg") }}>
+        <div class="box-prod">
+            <h6><strong>{{ product["name"] }}</strong></h6>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn">Add to Cart </button>
+            <h4 style="display: inline-block; ">{{product.price }}</h4>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <img class="prod-img" style="width:30%;"
+            src={{ url_for("static/images", filename="Yellow Sheets notepad.jpg") }}>
+        <div class="box-prod">
+            <h6><strong>{{ product["name"] }}</strong></h6>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn">Add to Cart </button>
+            <h4 style="display: inline-block; ">{{product.price }}</h4>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <img class="prod-img" style="width:30%;" src={{ url_for("static/images", filename="Jumbo Eraser.png") }}>
+        <div class="box-prod">
+            <h6><strong>{{ product["name"] }}</strong></h6>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn">Add to Cart </button>
+            <h4 style="display: inline-block; ">{{product.price }}</h4>
+
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <img class="prod-img" style="width:30%;" src={{ url_for("static/images", filename="firep.jpg") }}>
+        <div class="box-prod">
+            <h6><strong>{{ product["name"] }}</strong></h6>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn">Add to Cart </button>
+            <h4 style="display: inline-block; ">{{product.price }}</h4>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <img class="prod-img" style="width:30%;" src={{ url_for("static/images", filename="T-shirt.jpg") }}>
+        <div class="box-prod">
+            <h6><strong>{{ product["name"] }}</strong></h6>
+            <hr>
+            <button class="btn btn-outline-secondary add-btn">Add to Cart </button>
+            <h4 style="display: inline-block; ">{{product.price }}</h4>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

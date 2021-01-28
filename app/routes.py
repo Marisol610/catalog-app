@@ -36,11 +36,15 @@ def product_form():
         category = request.form.get("category")
         quantity = request.form.get("quantity")
         unique_tag = request.form.get("unique_tag")
-
-
+        
         create(name, price, description, category, quantity, unique_tag)
     form = ProductForm()
     return render_template("form_example.html", form=form)
+
+
+@app.route("/catalog/", methods =["POST", "GET"])
+def catalog():
+    return render_template("catalog.html")
 
 
 @app.route("/products")
@@ -70,6 +74,8 @@ def create_product():
         product_data.get("category"),
         product_data.get("quantity"),
         product_data.get("unique_tag")
+        
+
     )
 
     return {"ok": True, "message": "Success", "new_id": new_id}

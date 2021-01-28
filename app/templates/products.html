@@ -18,6 +18,7 @@
                     <th scope="col">Category</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Unique_tag</th>
+
                 </tr>
             </thead>
 
@@ -25,7 +26,7 @@
 
 
                 {% for product in products %}
-                {% if product["active"]  <= 1 %}
+                {% if product["active"]  == 1 %}
                 {% if product["quantity"] <= 500 %}
                 {% if product["quantity"] <= 100 %}
                 <tr class="table-danger">
@@ -35,13 +36,14 @@
                     {% else %}
                 <tr class="table-success">
                     {% endif %}
-                    <th scope="row">{{ product["id"] }}</th>
+                    <th class="image" scope="row"> {{ product["id"] }}</th>
                     <td>{{ product["name"] }}</td>
                     <td>{{ product["price"] }}</td>
                     <td>{{ product["category"] }}</td>
                     <td>{{ product["description"] }}</td>
                     <td>{{ product["quantity"] }}</td>
-                    <td>{{ product["Unique_tag"] }}</td>
+                    <td>{{ product["unique_tag"] }}</td>
+
 
 
 

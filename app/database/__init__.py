@@ -33,6 +33,7 @@ def output_formatter(results: tuple):
         res_dict["quantity"] = result[5]
         res_dict["unique_tag"] = result[6]
         res_dict["active"] = result[7]
+
         out["body"].append(res_dict)
     return out
 
@@ -72,7 +73,7 @@ def update(prod_id, fields:dict):
     return True
 
 
-def create(name, price, description, category, quantity, unique_tag):
+def create(name, price, description, category, quantity, unique_tag ):
     value_tuple = (name, price, description, category, quantity, unique_tag)
     query = """
             INSERT INTO product (
@@ -81,8 +82,9 @@ def create(name, price, description, category, quantity, unique_tag):
                     description,
                     category,
                     quantity,
-                    unique_tag)
-            VALUES (?, ?, ?, ?, ?, ?)
+                    unique_tag
+                    )
+            VALUES (?, ?, ?, ?, ?, ? )
         """
 
     cursor = get_db()
