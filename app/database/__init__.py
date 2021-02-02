@@ -32,6 +32,7 @@ def output_formatter(results: tuple):
         res_dict["category"] = result[4]
         res_dict["quantity"] = result[5]
         res_dict["unique_tag"] = result[6]
+        
         res_dict["active"] = result[7]
 
         out["body"].append(res_dict)
@@ -82,7 +83,7 @@ def create(name, price, description, category, quantity, unique_tag ):
                     description,
                     category,
                     quantity,
-                    unique_tag
+                    unique_tag,
                     )
             VALUES (?, ?, ?, ?, ?, ? )
         """

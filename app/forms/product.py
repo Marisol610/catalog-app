@@ -19,3 +19,8 @@ class ProductForm(FlaskForm):
     quantity = StringField("Enter a quantity", validators=[DataRequired()])
     unique_tag = StringField("Enter the product's unique_tag", validators=[DataRequired()])
     submit = SubmitField("Submit")
+
+class ProductReviewForm(FlaskForm):
+    name = StringField("Enter your name", validators=[DataRequired()])
+    product_name = StringField("Enter the product's name", validators=[DataRequired()])
+    review = StringField("Enter your review for this product", validators=[DataRequired()])

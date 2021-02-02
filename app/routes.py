@@ -42,7 +42,19 @@ def product_form():
     return render_template("form_example.html", form=form)
 
 
-@app.route("/catalog/", methods =["POST", "GET"])
+@app.route("/prod_review", methods=["GET", "POST"])
+def prod_review():
+    if request.method == "POST":
+        name = request.form.get("name")
+        product_name = request.form.get("product_name")
+        review = request.form.get("review")
+        
+        create(name, product_name, review)
+    form = ProductReviewForm()
+    return render_template("review.html", form=form)
+
+
+@app.route("/catalog")
 def catalog():
     return render_template("catalog.html")
 

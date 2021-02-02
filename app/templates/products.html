@@ -19,6 +19,8 @@
                     <th scope="col">Quantity</th>
                     <th scope="col">Unique_tag</th>
 
+
+
                 </tr>
             </thead>
 
@@ -26,47 +28,74 @@
 
 
                 {% for product in products %}
-                {% if product["active"]  == 1 %}
-                {% if product["quantity"] <= 500 %}
-                {% if product["quantity"] <= 100 %}
-                <tr class="table-danger">
+                {% if product["active"] == 1 %}
+                {% if product["quantity"] <= 500 %} {% if product["quantity"] <=100 %} <tr class="table-danger">
                     {% else %}
-                <tr class="table-warning">
+                    <tr class="table-warning">
+                        {% endif %}
+                        {% else %}
+                    <tr class="table-success">
+                        {% endif %}
+                        <th class="image" scope="row"> {{ product["id"] }}</th>
+                        <td>{{ product["name"] }}</td>
+                        <td>{{ product["price"] }}</td>
+                        <td>{{ product["category"] }}</td>
+                        <td>{{ product["description"] }}</td>
+                        <td>{{ product["quantity"] }}</td>
+                        <td>{{ product["unique_tag"] }}</td>
+
+
+
+
+
+
+
+
+                    </tr>
+
                     {% endif %}
-                    {% else %}
-                <tr class="table-success">
-                    {% endif %}
-                    <th class="image" scope="row"> {{ product["id"] }}</th>
-                    <td>{{ product["name"] }}</td>
-                    <td>{{ product["price"] }}</td>
-                    <td>{{ product["category"] }}</td>
-                    <td>{{ product["description"] }}</td>
-                    <td>{{ product["quantity"] }}</td>
-                    <td>{{ product["unique_tag"] }}</td>
-
-
-
-
-                </tr>
-
-                {% endif %}
-                {% endfor %}
-                <br>
-                <h3>Inventory List</h3>
+                    {% endfor %}
+                    <br>
+                    <h3>Inventory List</h3>
 
             </tbody>
     </div>
     </table>
     <br>
     <hr>
-    <h5>Delete Product</h5>
-    <div class="delete button">
-        <a class="btn btn-danger btn-sm" href={ url_for("delete_product", pid=product["id"] }>Delete</a>
+
+    <div class="row">
+        {% for product in products %}
+        <div class="col-lg-4">
+            <h6><strong>{{ product["id"] }}-{{ product["name"] }}</strong></h6>
+            <img class="prod-img" style="width:40%; border-radius: 10%;" src={{ url_for("static", filename="firep.jpg" )
+                }}>
+            <div class=" box-prod">
+                <h5><strong>{{ product["description"] }}</strong></h5>
+                <hr>
+                <button type="button" class="btn btn-primary" style="color:white">Add to Cart</button>
+                <h4 style="display: inline-block; ">${{product.price }}</h4>
+                <h4>Shipping Price $15.99</h4>
+                <br>
+                <br>
+                <br>
+                <button class="btn btn-danger btn-sm" href={ url_for("delete_product", pid=product["id"]
+                    }>Delete</a></button>
+                <button type="button" class="btn btn-info" style="color: paleturquoise" href={{ url_for("prod_review")
+                    }}></a>Review</button>
+                <hr><br>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+
+
+
+
     </div>
 
-
-
 </div>
 
-</div>
 {% endblock %}
